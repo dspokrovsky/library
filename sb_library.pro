@@ -17,18 +17,17 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp \
-    visitor.cpp \
-    book.cpp \
     controler.cpp \
-    consoleui.cpp \
-    model.cpp
+    model.cpp \
+    view.cpp
 
 HEADERS += \
     visitor.h \
     book.h \
     controler.h \
-    consoleui.h \
-    model.h
+    model.h \
+    view.h \
+    observer.h
 
 INCLUDEPATH += D:/boost_1_62_0_2
 LIBS += "-LD:\boost_1_62_0_2\lib64-msvc-12.0"
