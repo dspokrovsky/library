@@ -10,7 +10,7 @@ view::view(model *_m){
 }
 
 void view::menu(){
-    system("cls");
+    system("clear");
     std::cout << "Menu: \n";
     std::cout << "list of books: 1\n";
     std::cout << "list of visitors: 2\n";
@@ -18,10 +18,11 @@ void view::menu(){
     std::cout << "take a book: 4\n";
     std::cout << "list of debtors: 5\n";
     std::cout << "log out: 6\n";
+    std::cout << "* Press number, write book & author (doesn't support " "(spaces)')\n";
 }
 
 void view::update(int c){
-    system("cls");
+    system("clear");
     switch(c){
         case 0:
             this->menu();
@@ -45,17 +46,32 @@ void view::update(int c){
             break;
         case 3:
 
-            std::cout << "give a book: 3\n";
+            std::cout << "\nSuccess in the operation give a book.\n\n";
+            std::cout << "try again: 0\n";
+            std::cout << "log out: 6\n";
+            break;
+        case 31:
+            std::cout << "\nFailure in the operation give a book.\n\n";
             std::cout << "try again: 0\n";
             std::cout << "log out: 6";
             break;
         case 4:
-            std::cout << "take a book: 4\n";
+            std::cout << "\n Success == take a book \n\n";
             std::cout << "try again: 0\n";
             std::cout << "log out: 6";
             break;
+        case 41:
+
+            std::cout << "\n Failure == take a book \n\n";
+            std::cout << "try again: 0\n";
+            std::cout << "log out: 6";
+        break;
+
         case 5:
-            std::cout << "list of debtors: 5\n";
+            std::cout << "list of debtors: \n";
+            for (auto i: model_->debtors()){
+                std::cout << i <<std::endl;
+            }
             std::cout << "try again: 0\n";
             std::cout << "log out: 6";
             break;

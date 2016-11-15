@@ -7,9 +7,6 @@ public:
     virtual void update(int c) = 0;
 };
 
-
-
-
 class observable
 {
 public:

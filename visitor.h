@@ -45,7 +45,6 @@ public:
         ptr->t() = std::time(0);
         books_.push_back(ptr);
     }
-
 private:
     std::string name_;
     std::vector<book*> books_;

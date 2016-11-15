@@ -32,12 +32,15 @@ public:
     void addVisitor(visitor vt, int c);
     //recst of the task
     int recieveBook(visitor vt,book bk,int c);
-    void returnBook(visitor vt,book bk,int c);
+    int returnBook(visitor vt,book bk,int c);
+    int updateDebtors(int c);
+    std::vector <visitor>& debtors();
     void donoth(int c);
 
 private:
     storage_t visitors_;
     storageBook_t books_;
+    std::vector<visitor> debtors_;
 };
 
 #endif // MODEL_H
