@@ -9,17 +9,23 @@
 
 int main()
 {
-    model mod;
+    // fill the model;
     book b1("programming C++");
+    book b3("aaa");
     book b2("learn how to learn");
-    mod.books().push_back(b1);
-    mod.books().push_back(b2);
     visitor v1("vasya pupkin");
-    visitor v2("vasya pupkin 2");
-    //time_t t1 = std::time();
-    std::vector <detail::visData_t> l;
-    //std::vector <detail::visData_t> l2 = {}
-    mod.visitors().emplace(std::make_pair(v1,l));
+    visitor v2("aaa");
+    //std::vector <detail::visData_t> l;
+    model::storage_t vst;
+    vst.push_back(v1);
+    vst.push_back(v2);
+    model::storageBook_t bks;
+    bks.push_back(b1);
+    bks.push_back(b2);
+    bks.push_back(b3);
+
+    model mod(vst,bks);
+
     view ui(&mod);
     controler contr(&mod);
     contr.start();

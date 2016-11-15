@@ -1,6 +1,8 @@
 #ifndef CONTROLER_H
 #define CONTROLER_H
 #include <model.h>
+#include <iostream>
+
 
 class controler
 {
@@ -10,14 +12,23 @@ public:
     }
 
     int start(){
+        std::string str_b("aaa");
+        std::string str_b2("aaa");
+        visitor vi_b(str_b);
+        book bo_b(str_b2);
         model_->notifyUpdate(0);
         int _b;
         do{
-            scanf("%d",&_b);
+            try{
+                scanf("%d",&_b);
+            }catch(...){
+                model_->donoth(0);
+                throw;
+            }
             switch(_b){
-            case 0:{
+            case 0:
                 model_->donoth(_b);
-                break;}
+                break;
             case 1:
                 model_->books(_b);
                 break;
@@ -25,21 +36,19 @@ public:
                 model_->visitors(_b);
                 break;
             case 3:
-                //std::
-                //scanf()
 
-                break;
-            case 4:
-                //std::cout << "take a book: 4\n";
-                break;
-            case 5:
-//                std::cout << "list of debtors: 5\n";
+                //scanf("%s",str_b);
+                vi_b.name() = str_b;
 
+                //scanf("%s",str_b2);
+                bo_b.name() = str_b2;
+                model_->recieveBook(vi_b,bo_b,_b);
                 break;
             case 6:
                 exit(1);
                 break;
             default:
+                model_->donoth(0);
                 break;
             };
         }while(_b != -1);

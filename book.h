@@ -18,6 +18,9 @@ public:
     friend bool operator< (const book &oth1,const book &oth2){
         return (oth1.name() < oth2.name());
     }
+    friend bool operator== (const book &oth1,const book &oth2){
+        return (oth1.name() == oth2.name());
+    }
     friend std::ostream &operator<<(std::ostream &os, const book &obj){
         os << obj.name();
         return os;

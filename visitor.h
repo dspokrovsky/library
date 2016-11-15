@@ -11,6 +11,9 @@ public:
     visitor(std::string _m )
         :name_{_m}
     {}
+    visitor(const visitor& _m )
+        :name_{_m.name()}
+    {}
 
     const std::string& name() const{
         return name_;
@@ -28,12 +31,23 @@ public:
         os << obj.name();
         return os;
     }
-    int& size(){
-        return size_;
+    int size(){
+        return books_.size();
+    }
+    int size()const{
+        return books_.size();
+    }
+    std::vector<book*>& books(){
+        return books_;
+    }
+    void addBook(book* ptr){
+        ptr->own() =1;
+        ptr->t() = std::time(0);
+        books_.push_back(ptr);
     }
 
 private:
     std::string name_;
-    int size_ = 0;
+    std::vector<book*> books_;
 };
 #endif // VISITOR_H
