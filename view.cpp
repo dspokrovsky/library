@@ -19,7 +19,8 @@ void view::menu(){
     std::cout << "take a book: 4\n";
     std::cout << "list of debtors: 5\n\n";
     std::cout << "log out: 6\n\n";
-    std::cout << "* Use new line to input a number, a book & an author \n\n";
+    std::cout << "* Use new line to input a number, a book & an author \n";
+    std::cout << "** Don't be rush, input carefully \n\n";
 }
 
 void view::update(int c){

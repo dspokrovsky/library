@@ -21,8 +21,6 @@ public:
         int _b=-2;
         char ch;
         do{
-
-
             ch = std::cin.get();
             _b = std::atoi(&ch);
             std::cin.ignore();
