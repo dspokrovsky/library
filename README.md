@@ -1,3 +1,4 @@
-# library
-comming soon 
-не хватает пары функций из бизнес-логики
+﻿# safeboard library
+
+compiler MSVC 
++qmake
