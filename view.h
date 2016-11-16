@@ -7,7 +7,7 @@ class view: observer
 {
 public:
     view(model*_m);
-
+    ~view(){}
     virtual void update(int c);
 private:
     void menu();

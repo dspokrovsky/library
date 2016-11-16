@@ -14,33 +14,33 @@ class model: public observable
 {
 
 public:
-    //using storage_t = std::map< visitor, std::vector<detail::visData_t> >;
-    using storage_t = std::vector< visitor >;
-
+    using storageVisitor_t = std::vector< visitor >;
     using storageBook_t = std::vector<book>;
     model(){}
-    explicit model(storage_t vsts, storageBook_t bks);
+    explicit model(storageVisitor_t vsts, storageBook_t bks);
+    ~model(){}
     // accessors
-    storage_t& visitors(int c);
-    storage_t& visitors();
-    const storage_t& visitors() const;
+    storageVisitor_t& visitors(int c);
+    storageVisitor_t& visitors();
+    const storageVisitor_t& visitors() const;
     std::vector<book>& books();
     std::vector<book>& books(int c);
     const std::vector<book>& books() const;
     // functions
     void addBook(book bk, int c);
     void addVisitor(visitor vt, int c);
-    //recst of the task
+
+    //functions from the task
     int recieveBook(visitor vt,book bk,int c);
     int returnBook(visitor vt,book bk,int c);
     int updateDebtors(int c);
-    std::vector <visitor>& debtors();
+    const std::vector<std::string> &debtors() const;
     void donoth(int c);
 
 private:
-    storage_t visitors_;
+    storageVisitor_t visitors_;
     storageBook_t books_;
-    std::vector<visitor> debtors_;
+    std::vector<std::string> debtors_;
 };
 
 #endif // MODEL_H

@@ -1,20 +1,20 @@
 #include "model.h"
 #include <fstream>
 #include <algorithm>
-model::model(storage_t vsts, storageBook_t bks):visitors_(vsts),books_(bks)
+model::model(storageVisitor_t vsts, storageBook_t bks):visitors_(vsts),books_(bks)
 {
 
 }
 
 
-model::storage_t& model::visitors(int c){
+model::storageVisitor_t& model::visitors(int c){
     notifyUpdate(c);
     return visitors_;
 }
-model::storage_t& model::visitors(){
+model::storageVisitor_t& model::visitors(){
     return visitors_;
 }
-const model::storage_t& model::visitors() const{
+const model::storageVisitor_t& model::visitors() const{
     return visitors_;
 }
 std::vector<book>& model::books(){
@@ -73,19 +73,20 @@ int model::returnBook(visitor vt,book bk,int c){
 
 }
 int model::updateDebtors(int c){
-    std::vector<visitor> debts;
+    std::vector<std::string> debts;
     for(auto it = visitors().begin(); it != visitors().end(); it++){
         for (auto it2 = it->books().begin(); it2 != it->books().end();it2++){
             if ( ((*it2)->t() + 2592000 )< std::time(0)){
-                debts.push_back(*it);
+                debts.push_back((*it).name());
             }
         }
     }
     debtors_ = debts;
+    notifyUpdate(c);
     return 1;
 }
 
-std::vector<visitor>& model::debtors(){
+const std::vector<std::string>& model::debtors() const{
     return debtors_;
 }
 

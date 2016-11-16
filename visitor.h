@@ -14,6 +14,11 @@ public:
     visitor(const visitor& _m )
         :name_{_m.name()}
     {}
+    visitor(const visitor& _m, book* _b )
+        :name_{_m.name()}
+    {
+        books_.push_back(_b);
+    }
 
     const std::string& name() const{
         return name_;

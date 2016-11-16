@@ -28,5 +28,4 @@ HEADERS += \
     view.h \
     observer.h
 
-INCLUDEPATH += D:/boost_1_62_0_2
-LIBS += "-LD:\boost_1_62_0_2\lib64-msvc-12.0"
+
