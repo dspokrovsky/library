@@ -18,7 +18,8 @@ QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp \
     model.cpp \
-    view.cpp
+    view.cpp \
+    controler.cpp
 
 HEADERS += \
     visitor.h \

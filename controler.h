@@ -12,7 +12,8 @@ public:
         model_ = _m;
     }
 
-    void start(){
+    void start();
+    /*{
         std::string str_b;
         std::string str_b2;
         visitor vi_b(str_b);
@@ -21,9 +22,11 @@ public:
         int _b=-2;
         char ch;
         do{
-            ch = std::cin.get();
+            //ch = std::cin.get();
+            std::cin >> ch;
             _b = std::atoi(&ch);
-            std::cin.ignore();
+            //std::cin.ignore();
+            //std::cin.flush();
             switch(_b){
             case -2:
                 break;
@@ -62,7 +65,7 @@ public:
                 break;
             };
         }while(_b != -1);
-    }
+    }*/
 
 private:
     model *model_;

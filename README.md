@@ -1,4 +1,6 @@
 ﻿# safeboard library
 
-compiler MSVC 
-+qmake
+qmake
+gcc 
+or MSCV - тоже должно компилироваться.
+
