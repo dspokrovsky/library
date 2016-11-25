@@ -56,7 +56,10 @@ int model::recieveBook(visitor vt,book bk,int c){
 }
 
 int model::returnBook(visitor vt,book bk,int c){
+    std::cout << vt<< std::endl;
     auto it = std::find(visitors().begin(),visitors().end(),vt);
+
+    for_each(visitors().begin(),visitors().end(),[](visitor i){std::cout << i.name() <<std::endl;});
     if(it == visitors().end()){
         notifyUpdate(41);
         return -1;
@@ -70,7 +73,6 @@ int model::returnBook(visitor vt,book bk,int c){
     }
     notifyUpdate(41);
     return -1;
-
 }
 int model::updateDebtors(int c){
     std::vector<std::string> debts;

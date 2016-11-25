@@ -42,32 +42,29 @@ void view::update(int c){
     system(OS);
     switch(c){
         case 1:
-            std::cout << "\nlist of books: \n\n";
+            std::cout << "\n List of books: \n\n";
             for(auto it: model_->books()){
                 std::cout << it <<std::endl;
             }
             break;
         case 2:
-            std::cout << "\nlist of visitors: \n\n";
+            std::cout << "\n List of visitors: \n\n";
             for(auto it: model_->visitors()){
                 std::cout << it <<std::endl;
             }
             break;
         case 3:
-
-            std::cout << "\nSuccess in the operation give a book.\n\n";
+            std::cout << "\n Success in the operation give a book.\n\n";
             break;
         case 31:
-            std::cout << "\nFailure in the operation give a book.\n\n";
+            std::cout << "\n Failure in the operation give a book.\n\n";
             break;
         case 4:
             std::cout << "\n Success == take a book \n\n";
             break;
         case 41:
-
             std::cout << "\n Failure == take a book \n\n";
             break;
-
         case 5:
             std::cout << "\nlist of debtors: \n\n";
             for (auto i: model_->debtors()){
@@ -77,8 +74,10 @@ void view::update(int c){
         case 6:
             exit(1);
             break;
+        case 101:
+            std::cout << "\n Enter the name of auther\n";
         default:
             break;
     }
-     this->menu();
+    this->menu();
 }

@@ -25,16 +25,20 @@ void controler::start(){
             model_->visitors(_b);
             break;
         case 3:
-            std::cin >> str_b;
+            std::cin >> ch;
+            std::cin.putback(ch);  // go to a new line in console: allow to pres enter or not to press it...
+            std::getline(std::cin,str_b);
             vi_b.name() = str_b;
-            std::cin >> str_b2;
+            std::getline(std::cin,str_b2);
             bo_b.name() = str_b2;
             model_->recieveBook(vi_b,bo_b,_b);
             break;
         case 4:
-            std::cin >> str_b;
+            std::cin >> ch;
+            std::cin.putback(ch);  // go to a new line in console: allow to pres enter or not to press it...
+            std::getline(std::cin,str_b);
             vi_b.name() = str_b;
-            std::cin >> str_b2;
+            std::getline(std::cin,str_b2);
             bo_b.name() = str_b2;
             model_->returnBook(vi_b,bo_b,_b);
             break;

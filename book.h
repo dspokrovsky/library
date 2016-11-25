@@ -9,6 +9,7 @@ class book{
 public:
     book(std::string _n): name_{_n}{}
     book(std::string _n, time_t _t): name_{_n}, t_{_t}{}
+
     const std::string& name() const{
         return name_;
     }
@@ -40,5 +41,4 @@ private:
     int own_ = 0;
     std::time_t t_ =0;
 };
-
 #endif // BOOK_H
