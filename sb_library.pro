@@ -19,7 +19,8 @@ QMAKE_CXXFLAGS += -std=c++11
 SOURCES += main.cpp \
     model.cpp \
     view.cpp \
-    controler.cpp
+    controler.cpp \
+    databaseinterface.cpp
 
 HEADERS += \
     visitor.h \
@@ -27,6 +28,7 @@ HEADERS += \
     controler.h \
     model.h \
     view.h \
-    observer.h
+    observer.h \
+    databaseinterface.hpp
 
 
