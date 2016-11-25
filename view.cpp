@@ -66,7 +66,7 @@ void view::update(int c){
             std::cout << "\n Failure == take a book \n\n";
             break;
         case 5:
-            std::cout << "\nlist of debtors: \n\n";
+            std::cout << "\n list of debtors: \n\n";
             for (auto i: model_->debtors()){
                 std::cout << i <<std::endl;
             }
@@ -76,6 +76,10 @@ void view::update(int c){
             break;
         case 101:
             std::cout << "\n Enter the name of auther\n";
+        break;
+        case 100:
+            std::cout << model_->lastEvent() <<std::endl;
+            break;
         default:
             break;
     }

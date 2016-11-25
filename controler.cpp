@@ -7,7 +7,7 @@ void controler::start(){
     visitor vi_b(str_b);
     book bo_b(str_b2);
     model_->notifyUpdate(0);
-    int _b=-2;
+    int _b;
     char ch;
     do{
         std::cin >> ch;
@@ -16,7 +16,7 @@ void controler::start(){
         case -2:
             break;
         case 0:
-            model_->donoth(_b);
+            model_->sentUpdateToView(_b);
             break;
         case 1:
             model_->books(_b);
@@ -49,7 +49,7 @@ void controler::start(){
             exit(1);
             break;
         default:
-            model_->donoth(_b);
+            model_->sentUpdateToView(_b);
             break;
         };
     }while(_b != -1);
