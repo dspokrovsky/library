@@ -1,5 +1,4 @@
-#if defined(_MSC_VER) || \
-defined(__WIN32) || \
+#if defined(__WIN32) || \
 defined(__WIN32__) || \
 defined(_WIN32) || \
 defined(WIN32) || \
@@ -7,7 +6,7 @@ defined(__WINNT) || \
 defined(__WINNT__) || \
 defined(__WINNT)
 //Винда
-    #define OS "clc"
+    #define OS "cls"
 #else
     #define OS "clear"
 //юних
@@ -38,7 +37,7 @@ void view::menu(){
     std::cout << "** Don't be rush, input carefully \n\n";
 }
 
-void view::update(int c){
+int view::update(int c){
     system(OS);
     switch(c){
         case 1:
@@ -71,9 +70,6 @@ void view::update(int c){
                 std::cout << i <<std::endl;
             }
             break;
-        case 6:
-            exit(1);
-            break;
         case 101:
             std::cout << "\n Enter the name of auther\n";
         break;
@@ -84,4 +80,5 @@ void view::update(int c){
             break;
     }
     this->menu();
+	return 1;
 }

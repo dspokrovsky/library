@@ -14,13 +14,12 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++14
 
 SOURCES += main.cpp \
     model.cpp \
     view.cpp \
-    controler.cpp \
-    databaseinterface.cpp
+    controler.cpp
 
 HEADERS += \
     visitor.h \

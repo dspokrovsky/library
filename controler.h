@@ -1,6 +1,6 @@
 #ifndef CONTROLER_H
 #define CONTROLER_H
-#include <model.h>
+#include "model.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -12,7 +12,7 @@ public:
         model_ = _m;
     }
 
-    void start();
+    int start();
 
 private:
     model *model_;

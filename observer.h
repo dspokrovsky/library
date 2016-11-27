@@ -4,7 +4,7 @@
 class observer
 {
 public:
-    virtual void update(int c) = 0;
+    virtual int update(int c) = 0;
 };
 
 class observable

@@ -2,13 +2,13 @@
 #define MODEL_H
 
 #include <map>
-#include <visitor.h>
-#include <book.h>
+#include "visitor.h"
+#include "book.h"
 #include <ctime>
 #include <vector>
-#include <observer.h>
+#include "observer.h"
 #include <utility>
-#include <databaseinterface.hpp>
+#include "databaseinterface.hpp"
 #include <memory>
 
 class model: public observable
@@ -20,10 +20,10 @@ public:
     using storageBook_t = std::vector<book>;
     //constr'es
     model(){}
-    explicit model(std::shared_ptr<dataBaseInterface> _d);
+    model(std::shared_ptr<dataBaseInterface> _d);
     //old one co
     explicit model(storageVisitor_t &vsts, storageBook_t &bks);
-    ~model(){}
+	~model();
     // accessors
     storageVisitor_t& visitors(int c);
     storageVisitor_t& visitors();
@@ -41,7 +41,6 @@ public:
     int returnBook(visitor vt,book bk,int c);
     int updateDebtors(int c);
     const std::vector<std::string> &debtors() const;
-
     void sentUpdateToView(int c);
 
 private:
@@ -49,6 +48,7 @@ private:
     storageVisitor_t visitors_;
     storageBook_t books_;
     std::vector<std::string> debtors_;
+	std::shared_ptr<dataBaseInterface> storeOurData=nullptr;
 };
 
 #endif // MODEL_H

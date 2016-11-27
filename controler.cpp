@@ -1,7 +1,9 @@
 #include <iostream>
-#include <controler.h>
+#include "controler.h"
+#include "book.h"
+#include "visitor.h"
 
-void controler::start(){
+int controler::start(){
     std::string str_b;
     std::string str_b2;
     visitor vi_b(str_b);
@@ -46,11 +48,12 @@ void controler::start(){
             model_->updateDebtors(_b);
             break;
         case 6:
-            exit(1);
+			return 1;
             break;
         default:
             model_->sentUpdateToView(_b);
             break;
         };
     }while(_b != -1);
+	return 1;
 }
