@@ -4,11 +4,11 @@
 //constructos
 model::model(storageVisitor_t &vsts, storageBook_t &bks):visitors_(vsts),books_(bks){}
 model::model(std::shared_ptr<dataBaseInterface> _d):visitors_(_d->visitors()),books_(_d->books()), storeOurData(_d){}
-model::~model() {/*
+model::~model() {
 	if (storeOurData != nullptr) {
 		storeOurData->save(visitors(),books());
 		storeOurData = nullptr;
-	}*/
+	}
 }
 //accessors
 model::storageVisitor_t& model::visitors(int c){

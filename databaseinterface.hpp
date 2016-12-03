@@ -5,6 +5,8 @@
 #include "book.h"
 #include <vector>
 #include <utility>
+#include <memory>
+
 class dataBaseInterface
 {
 public:
@@ -16,23 +18,27 @@ public:
 class dataBaseInterface1: public dataBaseInterface
 {
 public:
-    dataBaseInterface1(std::vector<visitor> &_vis,std::vector<book> &_bo):visitors_(_vis), books_(_bo){
-    }
+    dataBaseInterface1(std::shared_ptr<std::vector <visitor> >_vis, std::shared_ptr<std::vector <book> > _bo){
+		visitors_ = _vis;
+		books_ = _bo;
+	}
     ~dataBaseInterface1(){
+		
     }
     virtual std::vector<visitor>& visitors(){
-        return visitors_;
+        return (*visitors_.get());
     }
     virtual std::vector<book>& books(){
-        return books_;
+        return *books_.get();
     }
 	virtual void save(std::vector<visitor> &vts, std::vector<book> &bks) {
-		books_ = bks;
-		visitors_ = vts;
+		books_ = std::make_shared<std::vector<book> >(bks);
+		visitors_ = std::make_shared<std::vector<visitor> >(vts);
 	};
+
 private:
-    std::vector<book> books_;
-    std::vector<visitor> visitors_;
+	std::shared_ptr<std::vector <book> > books_;
+    std::shared_ptr<std::vector <visitor > > visitors_;
 };
 
 
